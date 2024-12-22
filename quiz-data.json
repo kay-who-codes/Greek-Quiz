@@ -152,7 +152,7 @@
     { "word": "ἡμέραι", "gender": "Feminine", "case": "Nominative", "singularPlural": "Plural", "translation": "days" },
     { "word": "ἡμερῶν", "gender": "Feminine", "case": "Genitive", "singularPlural": "Plural", "translation": "of the days" },
     { "word": "ἡμέραις", "gender": "Feminine", "case": "Dative", "singularPlural": "Plural", "translation": "to/for the days" },
-    { "word": "ἡμέρας", "gender": "Feminine", "case": "Accusative", "singularPlural": "Plural", "translation": "days (direct object)" }
+    { "word": "ἡμέρας", "gender": "Feminine", "case": "Accusative", "singularPlural": "Plural", "translation": "days (direct object)" },
     { "word": "ἄγγελος", "gender": "Masculine", "case": "Nominative", "singularPlural": "Singular", "translation": "messenger, angel" },
     { "word": "ἄγγελοι", "gender": "Masculine", "case": "Nominative", "singularPlural": "Plural", "translation": "messengers, angels" },
     { "word": "ἄγγελον", "gender": "Masculine", "case": "Accusative", "singularPlural": "Singular", "translation": "messenger, angel (direct object)" },
