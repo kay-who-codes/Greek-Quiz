@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Cases Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question" id="question">What is the gender and case of the word?</div>
+        <div class="options" id="options">
+            <!-- Quiz will be dynamically inserted here -->
+        </div>
+        <div id="answerFeedback"></div>
+        <div class="next-button-container">
+            <button class="next-button" id="next" style="display:none;">Next</button>
+        </div>
+        <div class="stats">
+            Correct: <span id="correct">0</span> | Incorrect: <span id="incorrect">0</span>
+        </div>
+        <button class="reset-button" id="reset">Reset</button>
+    </div>
+    
+    <!-- View Tables Button -->
+    <button id="viewTables" class="view-tables-button">View Tables</button>
+    
+    <!-- Modal Pop-up -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Greek Grammar Tables</h2>
+            <h3>Summary Table of Articles by Gender and Case</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gender</th>
+                        <th>Case</th>
+                        <th>Singular</th>
+                        <th>Plural</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="5">Masculine</td><td>Nominative</td><td>ὁ</td><td>οἱ</td></tr>
+                    <tr><td>Genitive</td><td>τοῦ</td><td>τῶν</td></tr>
+                    <tr><td>Accusative</td><td>τόν</td><td>τούς</td></tr>
+                    <tr><td>Vocative</td><td>(same as nom.)</td><td>(same as nom.)</td></tr>
+                    <tr><td>Dative</td><td>τῷ</td><td>τοῖς</td></tr>
+                    <tr><td rowspan="5">Feminine</td><td>Nominative</td><td>ἡ</td><td>αἱ</td></tr>
+                    <tr><td>Genitive</td><td>τῆς</td><td>τῶν</td></tr>
+                    <tr><td>Accusative</td><td>τήν</td><td>τάς</td></tr>
+                    <tr><td>Vocative</td><td>(same as nom.)</td><td>(same as nom.)</td></tr>
+                    <tr><td>Dative</td><td>τῇ</td><td>ταῖς</td></tr>
+                    <tr><td rowspan="5">Neuter</td><td>Nominative</td><td>τό</td><td>τά</td></tr>
+                    <tr><td>Genitive</td><td>τοῦ</td><td>τῶν</td></tr>
+                    <tr><td>Accusative</td><td>τό</td><td>τά</td></tr>
+                    <tr><td>Vocative</td><td>(same as nom.)</td><td>(same as nom.)</td></tr>
+                    <tr><td>Dative</td><td>τῷ</td><td>τοῖς</td></tr>
+                </tbody>
+            </table>
+    
+            <h3>Case Usage and Function in Sentences</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Function</th>
+                        <th>Example in Greek</th>
+                        <th>Translation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Nominative</td><td>Subject of the sentence</td><td>Ὁ φίλος ἔρχεται.</td><td>The friend is coming.</td></tr>
+                    <tr><td>Genitive</td><td>Possession, origin, or partitive sense</td><td>Τοῦ φίλου τὸ βιβλίον.</td><td>The friend's book.</td></tr>
+                    <tr><td>Accusative</td><td>Direct object or movement</td><td>Βλέπω τὸν φίλον.</td><td>I see the friend.</td></tr>
+                    <tr><td>Vocative</td><td>Direct address</td><td>Ὦ φίλε!</td><td>O friend!</td></tr>
+                    <tr><td>Dative</td><td>Indirect object, location, or means</td><td>Δίδωμι τῷ φίλῳ.</td><td>I give to the friend.</td></tr>
+                </tbody>
+            </table>
+    
+            <h3>Declension Practice Table for Common Words</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Gender</th>
+                        <th>Case</th>
+                        <th>Singular</th>
+                        <th>Plural</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="5">ἄνθρωπος</td><td rowspan="5">Masculine</td><td>Nominative</td><td>ἄνθρωπος</td><td>ἄνθρωποι</td></tr>
+                    <tr><td>Genitive</td><td>ἀνθρώπου</td><td>ἀνθρώπων</td></tr>
+                    <tr><td>Accusative</td><td>ἄνθρωπον</td><td>ἀνθρώπους</td></tr>
+                    <tr><td>Vocative</td><td>ἄνθρωπε</td><td>ἄνθρωποι</td></tr>
+                    <tr><td>Dative</td><td>ἀνθρώπῳ</td><td>ἀνθρώποις</td></tr>
+                    <tr><td rowspan="5">θάλασσα</td><td rowspan="5">Feminine</td><td>Nominative</td><td>θάλασσα</td><td>θάλασσες</td></tr>
+                    <tr><td>Genitive</td><td>θαλάσσης</td><td>θαλασσῶν</td></tr>
+                    <tr><td>Accusative</td><td>θάλασσαν</td><td>θάλασσας</td></tr>
+                    <tr><td>Vocative</td><td>θάλασσα</td><td>θάλασσες</td></tr>
+                    <tr><td>Dative</td><td>θαλάσσῃ</td><td>θαλάσσαις</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+    <script src="quiz.js"></script>
+</body>
+</html>
