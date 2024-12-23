@@ -10,6 +10,7 @@ const incorrectEl = document.getElementById("incorrect");
 const resetButton = document.getElementById("reset");
 const nextButton = document.getElementById("next");
 const answerFeedbackEl = document.getElementById("answerFeedback");
+const darkModeToggle = document.getElementById("darkModeToggle");
 
 async function loadQuizData() {
     try {
@@ -20,6 +21,23 @@ async function loadQuizData() {
         console.error("Error loading quiz data:", error);
     }
 }
+
+// HEADER BAR
+
+
+// Toggle dropdown visibility
+function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('show');
+  }
+  
+  // Close dropdown when clicking outside
+  window.addEventListener('click', (event) => {
+    const dropdown = document.querySelector('.dropdown');
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
 
 function loadQuestion() {
     if (quizData.length === 0) return;
@@ -110,4 +128,9 @@ window.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+});
+
+// Dark mode toggle functionality
+darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 });
