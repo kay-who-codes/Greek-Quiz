@@ -2,3 +2,7 @@ App Update: 1
 Date of Update: 22 Dec 2024 @ 22:43
 Details: Created
 
+App Update: 2
+Date of Update: 23 Dec 2024 @ 12:38
+Details: Updated Table of Articles by Gender and Case
+
