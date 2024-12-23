@@ -87,6 +87,23 @@ body {
     color: #333;
 }
 
+.quiz-type-selector {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.quiz-type-selector label {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.quiz-type-selector select {
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 .quiz-container {
     text-align: center;
     max-width: 500px;
