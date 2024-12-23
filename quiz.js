@@ -11,10 +11,20 @@ const resetButton = document.getElementById("reset");
 const nextButton = document.getElementById("next");
 const answerFeedbackEl = document.getElementById("answerFeedback");
 const darkModeToggle = document.getElementById("darkModeToggle");
+const quizTypeEl = document.getElementById("quizType");
 
 async function loadQuizData() {
+    const quizType = quizTypeEl.value;
+    let dataUrl = '';
+
+    if (quizType === 'greek-cases') {
+        dataUrl = 'quiz-data.json';
+    } else if (quizType === 'word-roots') {
+        dataUrl = 'word-roots.json';
+    }
+
     try {
-        const response = await fetch("quiz-data.json");
+        const response = await fetch(dataUrl);
         quizData = await response.json();
         loadQuestion();
     } catch (error) {
@@ -39,40 +49,69 @@ function toggleDropdown() {
     }
   });
 
+
 function loadQuestion() {
     if (quizData.length === 0) return;
 
     const randomIndex = Math.floor(Math.random() * quizData.length);
     currentQuestion = quizData[randomIndex];
 
-    questionEl.textContent = `What is the gender and case of the word "${currentQuestion.word}"?`;
+    if (quizTypeEl.value === 'greek-cases') {
+        questionEl.textContent = `"${currentQuestion.word}"`;
+        const allOptions = [
+            `${currentQuestion.gender}, ${currentQuestion.case}`,
+            `${currentQuestion.gender}, Accusative`,
+            `Feminine, ${currentQuestion.case}`,
+            `Neuter, Genitive`
+        ].sort(() => Math.random() - 0.5);
 
-    const allOptions = [
-        `${currentQuestion.gender}, ${currentQuestion.case}`,
-        `${currentQuestion.gender}, Accusative`,
-        `Feminine, ${currentQuestion.case}`,
-        `Neuter, Genitive`
-    ].sort(() => Math.random() - 0.5);
+        optionsEl.innerHTML = "";
+        allOptions.forEach(option => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.addEventListener("click", () => checkAnswer(option, button));
+            optionsEl.appendChild(button);
+        });
+    } else if (quizTypeEl.value === 'word-roots') {
+        questionEl.textContent = `"${currentQuestion.root}"`;
 
-    optionsEl.innerHTML = "";
-    allOptions.forEach(option => {
-        const button = document.createElement("button");
-        button.textContent = option;
-        button.addEventListener("click", () => checkAnswer(option, button));
-        optionsEl.appendChild(button);
-    });
+        // Generate unique incorrect options
+        const incorrectOptions = [];
+        while (incorrectOptions.length < 3) {
+            const randomIncorrectIndex = Math.floor(Math.random() * quizData.length);
+            const incorrectOption = `${quizData[randomIncorrectIndex].english}`;
+            if (incorrectOption !== currentQuestion.english && !incorrectOptions.includes(incorrectOption)) {
+                incorrectOptions.push(incorrectOption);
+            }
+        }
+
+        const allOptions = [
+            currentQuestion.english,
+            ...incorrectOptions
+        ].sort(() => Math.random() - 0.5);
+
+        optionsEl.innerHTML = "";
+        allOptions.forEach(option => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.addEventListener("click", () => checkAnswer(option, button));
+            optionsEl.appendChild(button);
+        });
+    }
 
     answerFeedbackEl.textContent = ''; // Clear previous feedback
     nextButton.style.display = 'none'; // Hide next button
 }
 
 function checkAnswer(selectedOption, button) {
-    const correctAnswer = `${currentQuestion.gender}, ${currentQuestion.case}`;
+    const correctAnswer = quizTypeEl.value === 'greek-cases' ?
+        `${currentQuestion.gender}, ${currentQuestion.case}` :
+        currentQuestion.english;
 
     if (selectedOption === correctAnswer) {
         correctCount++;
         correctEl.textContent = correctCount;
-        answerFeedbackEl.innerHTML = `Correct!<br>Answer: ${correctAnswer}<br>Translation: ${currentQuestion.translation}`;
+        answerFeedbackEl.innerHTML = `Correct!<br><br>Answer: ${correctAnswer}<br><br>Origin: ${currentQuestion.origin}<br><br>Examples: ${currentQuestion.examples}`;
         answerFeedbackEl.style.color = 'green';
 
         // Disable all buttons and highlight the correct one
