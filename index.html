@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header-bar">
+        <a href="https://github.com/kay-who-codes/Greek-Case-Quiz" class="header-link">Greek Quiz</a>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">More Apps</button>
+          <div class="dropdown-content" id="dropdownMenu">
+            <a href="https://kay-who-codes.github.io/Cards-Against-Humanity/">⬜ Cards Against Humanity</a>
+            <a href="https://kay-who-codes.github.io/Ultimate-Drinking-Cards">🍻 Ultimate Drinking Cards</a>
+            <a href="https://kay-who-codes.github.io/Kings-Cup/">🍺 Kings Cup</a>
+            <a href="https://kay-who-codes.github.io/Daily-Comic-Strips/">🗞️ Comic Strips</a>
+            <a href="https://kay-who-codes.github.io/Soundboard/">🔊 Soundboard</a>
+            <a href="https://kay-who-codes.github.io/Greek-Case-Quiz/">🇬🇷 Greek Case Quiz</a>
+            <a href="https://kay-who-codes.github.io/Skint-Countdown/">⌛ Skint Countdown</a>
+            <a href="https://kay-who-codes.github.io/Song-Inspirator/">🎶 Song Inspirator</a>
+            <a href="https://kay-who-codes.github.io/Random-Numbers/">🔢 Random Number Generator</a>
+            <a href="https://kay-who-codes.github.io/Coinflip/">🪙 Coinflip</a>
+          </div>
+        </div>
+      </header>
     <div class="quiz-container">
         <div class="question" id="question">What is the gender and case of the word?</div>
         <div class="options" id="options">
@@ -105,6 +123,9 @@
         </div>
     </div>
     
+    <footer>
+        <button id="darkModeToggle" class="dark-mode-toggle">Toggle Dark Mode</button>
+    </footer>
 
     <script src="quiz.js"></script>
 </body>
