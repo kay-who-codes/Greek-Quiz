@@ -24,12 +24,12 @@
     text-decoration: underline;
 }
   
-  /* Dropdown menu styles */
-  .dropdown {
+/* Dropdown menu styles */
+.dropdown {
     position: relative;
-  }
+}
   
-  .dropbtn {
+.dropbtn {
     background-color: #ffffff;
     color: rgb(26, 26, 26);
     padding: 8px 16px;
@@ -39,13 +39,13 @@
     font-size: 16px;
     margin-right: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }    
+}    
   
-  .dropbtn:hover {
+.dropbtn:hover {
     background-color: #cccccc;
-  }
+}
   
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     right: 0;
@@ -56,29 +56,29 @@
     z-index: 1001;
     min-width: 200px;
     padding: 10px 0;
-  }
+}
   
-  .dropdown-content a {
+.dropdown-content a {
     color: white;
     text-decoration: none;
     padding: 8px 16px;
     display: block;
     font-size: 14px;
-  }
+}
   
-  .dropdown-content a:hover {
+.dropdown-content a:hover {
     background-color: #535353;
-  }
+}
   
-  .dropdown.show .dropdown-content {
+.dropdown.show .dropdown-content {
     display: block;
-  }
+}
 
   /* General styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin-top: 90px; /* Add margin to avoid overlapping with header */
+    padding-top: 90px; /* Add padding to avoid overlapping with header */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,22 +86,23 @@ body {
     height: 91vh;
     background-color: #f8f9fa;
     color: #000000;
-    padding-top: 90px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .quiz-type-selector {
     margin-bottom: 20px;
+    margin-top: 20px; /* Add margin to avoid overlapping with header */
     text-align: center;
 }
 
 .quiz-type-selector label {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-right: 10px;
 }
 
 .quiz-type-selector select {
-    font-size: 1rem;
-    padding: 5px;
+    font-size: 1.1rem;
+    padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -115,6 +116,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 90%;
     margin-top: auto;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .question {
@@ -171,9 +173,9 @@ body {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
-    border: 2px solid #bdbdbd;
-    background-color: #ffffff;
-    color: #000;
+    border: 1px solid #665252;
+    background-color: #ffdcdc;
+    color: #be1c1c;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -185,12 +187,12 @@ body {
 }
 
 .view-tables-button {
-    margin-top: 50px;
+    margin-top: 35px;
     padding: 10px 20px;
     font-size: 1rem;
     background-color: white;
     color: rgb(43, 43, 43);
-    border: 2px solid #b6b6b6;
+    border: 1px solid #b6b6b6;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -280,7 +282,7 @@ footer {
     text-align: center;
     font-size: 16px;
     color: #535353;
-    padding: 10px 0;
+    padding: 35px 0 5px 0;
     margin-top: auto; /* Push the footer to the bottom */
 }
 
@@ -350,9 +352,9 @@ body.dark-mode .next-button:hover {
 }
 
 body.dark-mode .reset-button {
-    border-color: #555;
-    background-color: #555;
-    color: #ffffff;
+    border-color: #805b5b;
+    background-color: #ffc4c4;
+    color: #970000;
 }
 
 body.dark-mode .reset-button:hover {

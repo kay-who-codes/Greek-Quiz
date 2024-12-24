@@ -25,14 +25,8 @@
           </div>
         </div>
       </header>
-    <div class="quiz-container">
-        <div class="quiz-type-selector">
-            <label for="quizType">Select Quiz Type:</label>
-            <select id="quizType" onchange="loadQuizData()">
-                <option value="word-roots">Word Roots</option>                
-                <option value="greek-cases">Greek Cases</option>
-            </select>
-        </div>
+
+    <div class="quiz-container quiz-page">
         <div class="question" id="question">What is the gender and case of the word?</div>
         <div class="options" id="options">
             <!-- Quiz will be dynamically inserted here -->
@@ -45,6 +39,16 @@
             Correct: <span id="correct">0</span> | Incorrect: <span id="incorrect">0</span>
         </div>
     </div>
+
+        <!-- quiz type selector -->
+        <div class="quiz-type-selector" id="quizTypeSelector">
+            <label for="quizType">Select Quiz Type:</label>
+            <select id="quizType" onchange="loadQuizData()">
+                <option value="word-roots">Word Roots</option>
+                <option value="greek-cases">Greek Cases</option>
+            </select>
+        </div>
+      
 
     <button class="reset-button" id="reset">Reset</button>
     
