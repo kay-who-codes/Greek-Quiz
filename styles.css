@@ -9,20 +9,20 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-  }
-  
-  .header-link {
+}
+
+/* Dropdown menu styles */
+.header-link {
     color: #535353;
     font-size: 20px;
     text-decoration: none;
     font-weight: bold;
-    margin-left: 20px
-  
-  }
-  
-  .header-link:hover {
+    margin-left: 20px;
+}
+
+.header-link:hover {
     text-decoration: underline;
-  }
+}
   
   /* Dropdown menu styles */
   .dropdown {
@@ -83,9 +83,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 91vh;
     background-color: #f8f9fa;
     color: #000000;
+    padding-top: 90px;
 }
 
 .quiz-type-selector {
