@@ -13,6 +13,24 @@ const answerFeedbackEl = document.getElementById("answerFeedback");
 const darkModeToggle = document.getElementById("darkModeToggle");
 const quizTypeEl = document.getElementById("quizType");
 
+// HEADER BAR
+
+
+// Toggle dropdown visibility
+function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.classList.toggle('show');
+  }
+  
+  // Close dropdown when clicking outside
+  window.addEventListener('click', (event) => {
+    const dropdown = document.querySelector('.dropdown');
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+
+
 async function loadQuizData() {
     const quizType = quizTypeEl.value;
     let dataUrl = '';
@@ -32,24 +50,7 @@ async function loadQuizData() {
     }
 }
 
-// HEADER BAR
-
-
-// Toggle dropdown visibility
-function toggleDropdown() {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.classList.toggle('show');
-  }
-  
-  // Close dropdown when clicking outside
-  window.addEventListener('click', (event) => {
-    const dropdown = document.querySelector('.dropdown');
-    if (!dropdown.contains(event.target)) {
-      dropdown.classList.remove('show');
-    }
-  });
-
-  function loadQuestion() {
+function loadQuestion() {
     if (quizData.length === 0) return;
 
     const randomIndex = Math.floor(Math.random() * quizData.length);
@@ -140,6 +141,9 @@ function checkAnswer(selectedOption, button) {
         Array.from(optionsEl.children).forEach(btn => btn.disabled = true); // Disable all options
         optionsEl.style.display = 'none'; // Hide options
         nextButton.style.display = 'block'; // Show the next button
+
+        // Hide the quiz type selector
+        quizTypeSelector.style.display = 'none';
     } else {
         incorrectCount++;
         incorrectEl.textContent = incorrectCount;
@@ -160,6 +164,9 @@ nextButton.addEventListener("click", () => {
     loadQuestion();
     optionsEl.style.display = 'flex'; // Show the options again
     nextButton.style.display = 'none'; // Hide the next button again
+
+    // Show the quiz type selector
+    quizTypeSelector.style.display = 'block';
 });
 
 resetButton.addEventListener("click", () => {
