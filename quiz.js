@@ -18,7 +18,7 @@ async function loadQuizData() {
     let dataUrl = '';
 
     if (quizType === 'greek-cases') {
-        dataUrl = 'quiz-data.json';
+        dataUrl = 'word-cases.json';
     } else if (quizType === 'word-roots') {
         dataUrl = 'word-roots.json';
     }
