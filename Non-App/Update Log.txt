@@ -14,3 +14,7 @@ App Update: 4
 Date of Update: 24 Dec 2024 @ 15:47
 Details: Fixed some words, improved styling
 
+App Update: 5
+Date of Update: 24 Dec 2024 @ 20:26
+Details: Display improvements
+
