@@ -49,31 +49,39 @@ function toggleDropdown() {
     }
   });
 
-
-function loadQuestion() {
+  function loadQuestion() {
     if (quizData.length === 0) return;
 
     const randomIndex = Math.floor(Math.random() * quizData.length);
     currentQuestion = quizData[randomIndex];
 
     if (quizTypeEl.value === 'greek-cases') {
-        questionEl.textContent = `"${currentQuestion.word}"`;
+        questionEl.textContent = `${currentQuestion.word}`;
+
+        // Define the fixed order of case options
         const allOptions = [
-            `${currentQuestion.gender}, ${currentQuestion.case}`,
-            `${currentQuestion.gender}, Accusative`,
-            `Feminine, ${currentQuestion.case}`,
-            `Neuter, Genitive`
-        ].sort(() => Math.random() - 0.5);
+            "Nominative",
+            "Genitive",
+            "Accusative",
+            "Vocative",
+            "Dative"
+        ];
+
+        // The correct answer is already present in the 'case' field of the current question
+        const correctAnswer = currentQuestion.case;
+
+        // Ensure the correct answer is included in the options
+        const options = [correctAnswer, ...allOptions.filter(option => option !== correctAnswer)];
 
         optionsEl.innerHTML = "";
-        allOptions.forEach(option => {
+        options.forEach(option => {
             const button = document.createElement("button");
             button.textContent = option;
             button.addEventListener("click", () => checkAnswer(option, button));
             optionsEl.appendChild(button);
         });
     } else if (quizTypeEl.value === 'word-roots') {
-        questionEl.textContent = `"${currentQuestion.root}"`;
+        questionEl.textContent = `${currentQuestion.root}`;
 
         // Generate unique incorrect options
         const incorrectOptions = [];
@@ -104,35 +112,46 @@ function loadQuestion() {
 }
 
 function checkAnswer(selectedOption, button) {
-    const correctAnswer = quizTypeEl.value === 'greek-cases' ?
-        `${currentQuestion.gender}, ${currentQuestion.case}` :
-        currentQuestion.english;
+    let correctAnswer = "";
 
-    if (selectedOption === correctAnswer) {
+    if (quizTypeEl.value === 'greek-cases') {
+        // For Greek Cases quiz, the correct answer is the case of the word
+        correctAnswer = currentQuestion.case;
+    } else if (quizTypeEl.value === 'word-roots') {
+        // For Word Roots quiz, the correct answer is the English meaning
+        correctAnswer = currentQuestion.english;
+    }
+
+    // Trim whitespace and convert both answers to lowercase for case-insensitive comparison
+    if (selectedOption.trim().toLowerCase() === correctAnswer.trim().toLowerCase()) {
         correctCount++;
         correctEl.textContent = correctCount;
-        answerFeedbackEl.innerHTML = `Correct!<br><br>Answer: ${correctAnswer}<br><br>Origin: ${currentQuestion.origin}<br><br>Examples: ${currentQuestion.examples}`;
-        answerFeedbackEl.style.color = 'green';
 
-        // Disable all buttons and highlight the correct one
-        Array.from(optionsEl.children).forEach(btn => btn.disabled = true);
+        // Show detailed answer feedback based on the quiz type
+        if (quizTypeEl.value === 'greek-cases') {
+            answerFeedbackEl.innerHTML = `Correct!<br><br>Word Case: ${currentQuestion.singularPlural}, ${currentQuestion.gender}, ${currentQuestion.case}<br><br>Translation: ${currentQuestion.translation}`;
+        } else {
+            answerFeedbackEl.innerHTML = `Translation: ${currentQuestion.english}<br><br>Origin: ${currentQuestion.origin}<br><br>Etymology: ${currentQuestion.etymology}<br><br>Examples: ${currentQuestion.examples}`;
+        }
 
-        // Hide the options and show the feedback
-        optionsEl.style.display = 'none';
-
-        // Show the next button
-        nextButton.style.display = 'block';
+        // Apply correct feedback style using class-based styling
+        answerFeedbackEl.classList.remove('incorrect'); // Remove any previous incorrect class
+        answerFeedbackEl.classList.add('correct'); // Add the 'correct' class for styling
+        Array.from(optionsEl.children).forEach(btn => btn.disabled = true); // Disable all options
+        optionsEl.style.display = 'none'; // Hide options
+        nextButton.style.display = 'block'; // Show the next button
     } else {
         incorrectCount++;
         incorrectEl.textContent = incorrectCount;
 
-        // Highlight incorrect answer
+        // Add the 'incorrect' class for styling
         button.classList.add("incorrect");
-        button.disabled = true; // Prevent multiple clicks on the same button
+        button.disabled = true;
 
-        // Provide feedback to the user
+        // Provide incorrect feedback using class-based styling
         answerFeedbackEl.textContent = `Incorrect. Try again!`;
-        answerFeedbackEl.style.color = 'red';
+        answerFeedbackEl.classList.remove('correct'); // Remove 'correct' class if present
+        answerFeedbackEl.classList.add('incorrect'); // Add 'incorrect' class for styling
     }
 }
 
