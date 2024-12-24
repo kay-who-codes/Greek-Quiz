@@ -304,6 +304,15 @@ footer {
 
 /* Dark mode styles */
 
+body.dark-mode .header-bar {
+    background-color: #131313e3;
+    color: white;
+}
+
+body.dark-mode .header-link {
+    color: #e6e6e6;
+}
+
 body.dark-mode .dropbtn {
     background-color: #333333;
     color: rgb(255, 255, 255);
