@@ -14,14 +14,11 @@ const darkModeToggle = document.getElementById("darkModeToggle");
 const quizTypeEl = document.getElementById("quizType");
 
 // HEADER BAR
-
-
 // Toggle dropdown visibility
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown');
     dropdown.classList.toggle('show');
   }
-  
   // Close dropdown when clicking outside
   window.addEventListener('click', (event) => {
     const dropdown = document.querySelector('.dropdown');
@@ -30,7 +27,7 @@ function toggleDropdown() {
     }
   });
 
-
+// QUIZ
 async function loadQuizData() {
     const quizType = quizTypeEl.value;
     let dataUrl = '';
@@ -112,6 +109,7 @@ function loadQuestion() {
     nextButton.style.display = 'none'; // Hide next button
 }
 
+// Check if the selected option is correct
 function checkAnswer(selectedOption, button) {
     let correctAnswer = "";
 
@@ -159,6 +157,7 @@ function checkAnswer(selectedOption, button) {
     }
 }
 
+// Event listeners
 nextButton.addEventListener("click", () => {
     answerFeedbackEl.textContent = ''; // Clear feedback
     loadQuestion();
@@ -167,6 +166,15 @@ nextButton.addEventListener("click", () => {
 
     // Show the quiz type selector
     quizTypeSelector.style.display = 'block';
+});
+
+// AUTO DARK MODE
+document.addEventListener('DOMContentLoaded', () => {
+    // Check local storage for theme preference
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
 });
 
 resetButton.addEventListener("click", () => {
