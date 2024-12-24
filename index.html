@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇬🇷 Greek Quiz</title>
+    <title>Greek Cases Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header-bar">
-        <a href="https://github.com/kay-who-codes/Greek-Quiz" class="header-link">Greek Quiz</a>
+        <a href="https://github.com/kay-who-codes/Greek-Case-Quiz" class="header-link">Greek Quiz</a>
         <div class="dropdown">
           <button class="dropbtn" onclick="toggleDropdown()">More Apps</button>
           <div class="dropdown-content" id="dropdownMenu">
@@ -17,7 +17,7 @@
             <a href="https://kay-who-codes.github.io/Kings-Cup/">🍺 Kings Cup</a>
             <a href="https://kay-who-codes.github.io/Daily-Comic-Strips/">🗞️ Comic Strips</a>
             <a href="https://kay-who-codes.github.io/Soundboard/">🔊 Soundboard</a>
-            <a href="https://kay-who-codes.github.io/Greek-Quiz/">🇬🇷 Greek Case Quiz</a>
+            <a href="https://kay-who-codes.github.io/Greek-Case-Quiz/">🇬🇷 Greek Case Quiz</a>
             <a href="https://kay-who-codes.github.io/Skint-Countdown/">⌛ Skint Countdown</a>
             <a href="https://kay-who-codes.github.io/Song-Inspirator/">🎶 Song Inspirator</a>
             <a href="https://kay-who-codes.github.io/Random-Numbers/">🔢 Random Number Generator</a>
@@ -29,8 +29,8 @@
         <div class="quiz-type-selector">
             <label for="quizType">Select Quiz Type:</label>
             <select id="quizType" onchange="loadQuizData()">
+                <option value="word-roots">Word Roots</option>                
                 <option value="greek-cases">Greek Cases</option>
-                <option value="word-roots">Word Roots</option>
             </select>
         </div>
         <div class="question" id="question">What is the gender and case of the word?</div>
@@ -44,8 +44,9 @@
         <div class="stats">
             Correct: <span id="correct">0</span> | Incorrect: <span id="incorrect">0</span>
         </div>
-        <button class="reset-button" id="reset">Reset</button>
     </div>
+
+    <button class="reset-button" id="reset">Reset</button>
     
     <!-- View Tables Button -->
     <button id="viewTables" class="view-tables-button">View Tables</button>
@@ -234,8 +235,83 @@
                     <tr><td>Dative</td><td>θαλάσσῃ</td><td>θαλάσσαις</td></tr>
                 </tbody>
             </table>
+            <h3>Diphthong Pronunciation Guide</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Diphthong</th>
+                            <th>Pronunciation (IPA)</th>
+                            <th>Example Words</th>
+                            <th>Explanation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>αι</td>
+                            <td>ai</td>
+                            <td>αἰών (aion, "age")</td>
+                            <td>Like the "i" in "kite."</td>
+                        </tr>
+                        <tr>
+                            <td>ει</td>
+                            <td>ei</td>
+                            <td>εἶδος (eidos, "form")</td>
+                            <td>Like the "ei" in "rein" or the "ay" in "say."</td>
+                        </tr>
+                        <tr>
+                            <td>οι</td>
+                            <td>oi</td>
+                            <td>οἶκος (oikos, "house")</td>
+                            <td>Like the "oy" in "boy."</td>
+                        </tr>
+                        <tr>
+                            <td>υι</td>
+                            <td>yi</td>
+                            <td>υἱός (huios, "son")</td>
+                            <td>Like "ee" in "see" with a "y" sound at the beginning.</td>
+                        </tr>
+                        <tr>
+                            <td>αυ</td>
+                            <td>au, af, av</td>
+                            <td>αὐτός (avtos, "he/she/it")</td>
+                            <td>The "ow" in "how.". The "af" in "after."</td>
+                        </tr>
+                        <tr>
+                            <td>ευ</td>
+                            <td>eu</td>
+                            <td>εὐτυχία (eutychia, "happiness")</td>
+                            <td>Like "eu" in "feud" or "ew" in "few."</td>
+                        </tr>
+                        <tr>
+                            <td>ηυ</td>
+                            <td>eu</td>
+                            <td>ηὐτός (eutos, "he/she/it")</td>
+                            <td>Like "eu" in "feud," but slightly softer.</td>
+                        </tr>
+                        <tr>
+                            <td>ου</td>
+                            <td>ou</td>
+                            <td>οὐρανός (ouranos, "sky")</td>
+                            <td>Like the "oo" in "food."</td>
+                        </tr>
+                        <tr>
+                            <td>ωι</td>
+                            <td>oi</td>
+                            <td>ὠΐδιον (oidion, "little song")</td>
+                            <td>Like the "oy" in "boy," but with a longer duration.</td>
+                        </tr>
+                        <tr>
+                            <td>υω</td>
+                            <td>wo</td>
+                            <td>δύσκολος (dyskolos, "difficult")</td>
+                            <td>Like the "wo" in "wonder."</td>
+                        </tr>
+                    </tbody>
+                </table>
         </div>
     </div>
+
+    
     
     <footer>
         <button id="darkModeToggle" class="dark-mode-toggle">Toggle Dark Mode</button>
