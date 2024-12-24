@@ -10,3 +10,7 @@ App Update: 3
 Date of Update: 23 Dec 2024 @ 14:06
 Details: Added word roots quiz
 
+App Update: 4
+Date of Update: 24 Dec 2024 @ 15:47
+Details: Fixed some words, improved styling
+
