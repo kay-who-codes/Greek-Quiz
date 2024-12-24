@@ -3,7 +3,7 @@
 ## Overview
 This web app is a learning tool designed to help users improve their knowledge of **Greek word cases** and **Greek/Latin word roots**. It features interactive quizzes with immediate feedback and detailed explanations for each answer.
 
-The app is hosted on **GitHub Pages** and accessible **[HERE](https://kay-who-codes.github.io/Greek-Quiz/)**
+The app is hosted on **[GitHub Pages](https://kay-who-codes.github.io/Greek-Quiz/)** and **[Glitch](https://jumpy-flicker-height.glitch.me)**.
 
 ## Features
 - **Two Quiz Types**:
