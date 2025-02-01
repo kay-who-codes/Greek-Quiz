@@ -5,7 +5,7 @@ This web app is a learning tool designed to help users improve their knowledge o
 
 The app is hosted on **[GitHub Pages](https://kay-who-codes.github.io/Greek-Quiz/)** and **[Glitch](https://jumpy-flicker-height.glitch.me)**.
 
-![App Image](Non-App/Greek%20Quiz.png)
+[![App Image](Non-App/Greek%20Quiz.png)](https://kay-who-codes.github.io/Greek-Quiz/)
 
 ## Features
 - **Two Quiz Types**:
